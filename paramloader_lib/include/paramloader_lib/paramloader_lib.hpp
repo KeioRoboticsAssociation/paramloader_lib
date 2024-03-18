@@ -20,27 +20,21 @@ class ParamLoaderLib {
     return node_->get_parameter(param_name).as_int();
   }
 
-  inline float load_param(std::string param_name, float default_value) {
+  inline double load_param(std::string param_name, double default_value) {
     node_->declare_parameter(param_name, default_value);
-    return node_->get_parameter(param_name).as_double();
+    return (double)node_->get_parameter(param_name).as_double();
   }
 
-  inline std::string load_param(std::string param_name,
-                                std::string default_value) {
+  inline std::string load_param(std::string param_name, char *default_value) {
     node_->declare_parameter(param_name, default_value);
     return node_->get_parameter(param_name).as_string();
   }
 
-  inline std::vector<float> load_param(
+  inline std::vector<double> load_param(
       std::string param_name,
-      std::vector<float> default_value = std::vector<float>(0, 0)) {
+      std::vector<double> default_value = std::vector<double>(0, 0)) {
     node_->declare_parameter(param_name, default_value);
-    auto param = node_->get_parameter(param_name).as_double_array();
-    std::vector<float> ret;
-    for (auto p : param) {
-      ret.push_back((float)p);
-    }
-    return ret;
+    return node_->get_parameter(param_name).as_double_array();
   }
 
   inline std::vector<int> load_param(

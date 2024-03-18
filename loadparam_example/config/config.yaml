@@ -1,0 +1,9 @@
+/**:
+  ros__parameters:
+   bool_param: True
+   int_param: 1
+   double_param: 1.0
+   string_param: "string"
+   int_array_param: [1, 2, 3]
+   double_array_param: [1.0, 2.0, 3.0]
+   string_array_param: ["string1", "string2", "string3"]
